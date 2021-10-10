@@ -24,6 +24,11 @@ class Form extends Component {
               }
     }
 
+    /*
+    when the form is submitted
+    the code will get the state (containing URL and name value) and run handleSubmit() from LinkContainer (senting the data to be added to favLinks)
+    then we reset the value of the state, so if we press submit again without any data, it wont sent the past data from the pervious sumbit
+    */
     onFormSubmit = (event) => {
         // to prevent page reload on form submit
         event.preventDefault();

@@ -20,6 +20,10 @@ class LinkContainer extends React.Component {
             }))
   }
 
+ /*
+  update this.state.favLinks by adding the favLink to the end of the this.state.favLinks array
+  and set theState of the result of the new favLink
+  */
   handleSubmit = (favLink) => {
             this.setState({ favLinks: [...this.state.favLinks, favLink] })
   }
