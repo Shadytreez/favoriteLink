@@ -18,9 +18,15 @@ class Form extends Component {
     handleChange = event => {
 
             if (event.target.id === 'name') {
-                this.setState({ name: event.target.value })
+                this.setState({ 
+                    name: event.target.value
+                 })
+                 console.log(this.state.name)
               } else {
-                this.setState({ URL: event.target.value })
+                this.setState({ 
+                    URL: event.target.value
+                 })
+                 console.log(this.state.URL)
               }
     }
 
@@ -32,13 +38,23 @@ class Form extends Component {
     onFormSubmit = (event) => {
         // to prevent page reload on form submit
         event.preventDefault();
-        console.log(document.getElementById("name").value)
-        console.log(document.getElementById("URL").value)
-        this.props.addInfomations(this.state)
-        this.setState ={
-            name: "",
-            URL: ""
+        //console.log(document.getElementById("name").value)
+        //console.log(document.getElementById("URL").value)
+        if(document.getElementById("name").value.trim() !== "" && document.getElementById("URL").value.trim() !== ""){
+            this.props.addInfomations(this.state)
+            const name = ""
+            const URL = ""
+            this.setState ( {
+            name: name,
+            URL: URL
+            })
+            console.log("namer " + this.state.name)
+            document.getElementById("name").value = ""
+            document.getElementById("URL").value = ""
+        }else{
+            alert("Make sure all field is not empty");
         }
+        
         /*
             TODO - Logic for calling props to handle submission and setting state changes
         */
